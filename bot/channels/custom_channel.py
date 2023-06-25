@@ -22,7 +22,6 @@ structlogger = structlog.get_logger()
 
 
 class MyIO(InputChannel):
-
     @classmethod
     def name(cls) -> Text:
         return "myio"

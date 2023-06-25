@@ -67,7 +67,7 @@ def run_server(domain, port, workers):
         """Endpoint which processes the Core request for a bot response."""
         nlg_call = request.json
         logger.info(f"\nNLG request: \n{nlg_call}\n")
-        
+
         bot_response = await generate_response(nlg_call, domain)
 
         return response.json(bot_response)

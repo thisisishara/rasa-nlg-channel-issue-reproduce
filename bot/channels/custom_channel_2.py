@@ -24,7 +24,6 @@ CHANNEL_NAME = "myio2"
 
 
 class MyIO2(InputChannel):
-
     @classmethod
     def name(cls) -> Text:
         return CHANNEL_NAME
