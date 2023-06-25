@@ -6,7 +6,9 @@ Exact steps to reproduce Rasa open source channel name retrieval issue in the ex
     "developer": "thisisishara",
     "python_version": "3.10.10",
     "environment": "conda",
-    "rasa_version": "3.6.0"
+    "rasa_version": "3.6.0",
+    "rasa_oss_issue_url": "https://rasa-open-source.atlassian.net/browse/OSS-714",
+    "pr_url": "in_progress"
 }
 ```
 
