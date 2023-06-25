@@ -4,6 +4,8 @@ Exact steps to reproduce Rasa open source channel name retrieval issue in the ex
 ```json
 {
     "developer": "thisisishara",
+    "python_version": "3.10.10",
+    "environment": "conda",
     "rasa_version": "3.6.0"
 }
 ```
@@ -17,7 +19,7 @@ This is due to a bug introduced by the given nlg server script, which does not c
 ## Steps to reproduce
 You can use the given rasa bot and nlg server scripts to reproduce the issue easily. 
 
-- Setup a python 3.8 or 3.9 conda or venv environment and then install the given dependencies by running the following command.
+- Setup a python 3.9 or 3.10 conda or venv environment and then install the given dependencies by running the following command.
 ```shell
 cd {path_to_cloned_repo}/bot
 pip install -r requirements.txt
