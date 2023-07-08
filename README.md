@@ -1,5 +1,8 @@
 # rasa_nlg_channel_issue_reproduce
-Exact steps to reproduce Rasa open source channel name retrieval issue in the example sanic-based NLG server provided
+Exact steps to reproduce the Rasa open source channel name retrieval issue in the example Sanic-based NLG server provided
+
+## Update: The PR got merged! 🚀
+The fix is available in [3.7.0b1](https://github.com/RasaHQ/rasa/blob/3.7.0b1/examples/nlg_server/nlg_server.py) 
 
 ```json
 {
@@ -8,20 +11,20 @@ Exact steps to reproduce Rasa open source channel name retrieval issue in the ex
     "environment": "conda",
     "rasa_version": "3.6.0",
     "rasa_oss_issue_url": "https://rasa-open-source.atlassian.net/browse/OSS-714",
-    "pr_url": "in_progress"
+    "pr_url": "https://github.com/RasaHQ/rasa/pull/12555"
 }
 ```
 
 ## Issue description
 When using `custom channels` and `channel-specific response variations` with Rasa Open Source, using the given `nlg_server.py` script in the official Rasa codebase is not able to extract and return the correct response variation according to the latest input channel.
 
-This is due to a bug introduced by the given nlg server script, which does not correctly extract the name of the channel.
+This is due to a bug introduced by the given NLG server script, which does not correctly extract the name of the channel.
 <hr>
 
 ## Steps to reproduce
-You can use the given rasa bot and nlg server scripts to reproduce the issue easily. 
+You can use the given rasa bot and NLG server scripts to reproduce the issue easily. 
 
-- Setup a python 3.9 or 3.10 conda or venv environment and then install the given dependencies by running the following command.
+- Set up a Python 3.9 or 3.10 Conda or VENV environment and then install the given dependencies by running the following command.
 ```shell
 cd {path_to_cloned_repo}/bot
 pip install -r requirements.txt
@@ -37,13 +40,13 @@ rasa train
 rasa run --enable-api --cors "*"
 ```
 
-- To reproduce the default nlg behaviour/bug, run the official NLG server available in the Rasa repository, in a separate terminal instance. DO NOT forget to attach the domain file via the -d argument.
+- To reproduce the default NLG behavior/bug, run the official NLG server available in the Rasa repository, in a separate terminal instance. DO NOT forget to attach the domain file via the -d argument.
 ```shell
 cd {path_to_cloned_repo}/nlg
 python nlg_server.py -d ../bot/domain.yml
 ```
 
-- Open up a API testing utility such as postman, or simply use a different python script to send a POST request to the rasa server. The request should look like this if you're using python.
+- Open up an API testing utility such as Postman, or simply use a different Python script to send a POST request to the rasa server. The request should look like this if you're using Python.
 ```python
 import requests
 import json
@@ -101,9 +104,9 @@ cd {path_to_cloned_repo}/nlg
 python nlg_server_fixed.py -d ../bot/domain.yml
 ```
 
-- Send another POST request with the same body as in previous request.
+- Send another POST request with the same body as in the previous request.
 ```shell
-curl --location 'http://localhost:5005/webhooks/myio/webhook' \
+curl --location 'http://localhost:5005/webhooks/myio2/webhook' \
 --header 'Content-Type: application/json' \
 --data '{
     "sender": "default",
