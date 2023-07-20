@@ -1,4 +1,4 @@
-# rasa_nlg_channel_issue_reproduce
+# rasa-nlg-channel-issue-reproduce
 Exact steps to reproduce the Rasa open source channel name retrieval issue in the example Sanic-based NLG server provided
 
 ## Update: The PR got merged! 🚀
